@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="icon" href="./images/favicon.png" />
+    <title>What's For Dinner</title>
+  </head>
+  <body class="bg-section-color">
+    <header id="navbar">
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-3">
+        <div class="container">
+          <div class="logo-container d-flex align-items-center gap-3">
+            <div class="logo rounded-circle shadow">
+              <i class="fa-solid fa-utensils fs-5 text-white"></i>
+            </div>
+            <div>
+              <h1 class="fs-4 mb-0 fw-bold">What's For Dinner</h1>
+              <span class="tab-color">Your daily meal inspiration</span>
+            </div>
+          </div>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <hr class="d-block d-lg-none" />
+              <div
+                class="inner d-flex flex-column flex-lg-row align-items-lg-center align-items-start gap-3 pt-4 pt-lg-0"
+              >
+                <button class="p-0 m-0 bg-transparent border-0 fs-6">
+                  <i class="fa-solid fa-bookmark text-secondary-color fs-5"></i>
+                  <span class="text-secondary-color d-inline-block d-lg-none"
+                    >Saved Recipes</span
+                  >
+                </button>
+                <button class="p-0 m-0 bg-transparent border-0 fs-6">
+                  <i
+                    class="fa-solid fa-clock-rotate-left text-secondary-color fs-5"
+                  ></i>
+                  <span class="text-secondary-color d-inline-block d-lg-none"
+                    >Recent</span
+                  >
+                </button>
+                <button class="p-0 m-0 bg-transparent border-0 fs-6">
+                  <i class="fa-solid fa-gear text-secondary-color fs-5"></i>
+                  <span class="text-secondary-color d-inline-block d-lg-none"
+                    >Settings</span
+                  >
+                </button>
+                <button
+                  class="profile p-0 m-0 bg-transparent border-0 fs-5 d-flex align-items-center gap-2"
+                >
+                  <img
+                    src="./images/avatar.jpg"
+                    alt="profile image"
+                    class="rounded-circle"
+                  />
+                  <span
+                    class="fs-6 text-secondary-color d-inline-block d-lg-none"
+                    >Profile</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="recipe-section" class="min-vh-100 container">
+        <div class="contianer">
+          <div class="row g-0 rounded-5 overflow-hidden shadow">
+            <div class="col-12 col-lg-5">
+              <!-- recipe image -->
+              <div
+                class="inner overflow-hidden recipe-image card h-100 border-0"
+              >
+                <div
+                  class="image-wrapper card h-100 border-0"
+                  id="recipeImage"
+                ></div>
+
+                <div class="rating-container rounded-pill shadow px-3 py-2">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-star"></i>
+                    <span id="ratingNumber" class="fw-semibold"></span>
+                    <span id="reviews"></span>
+                  </div>
+                </div>
+
+                <div class="preparation-info shadow">
+                  <div
+                    class="inner d-flex align-items-center justify-content-around"
+                  >
+                    <div
+                      class="item item-1 d-flex flex-column align-items-center gap-1"
+                    >
+                      <i class="fa-solid fa-clock"></i>
+                      <h4 class="time m-0 fw-normal">Prep Time</h4>
+                      <span id="prepareTimeValue" class="fw-bold"> </span>
+                    </div>
+
+                    <div
+                      class="item item-2 d-flex flex-column align-items-center gap-1"
+                    >
+                      <i class="fa-solid fa-fire-burner"></i>
+                      <h4 class="time m-0 fw-normal">Cook Time</h4>
+                      <span id="cookTimeValue" class="fw-bold"> </span>
+                    </div>
+
+                    <div
+                      class="item item-3 d-flex flex-column align-items-center gap-1"
+                    >
+                      <i class="fa-solid fa-fire-burner"></i>
+                      <h4 class="time m-0 fw-normal">Servings</h4>
+                      <span id="servingsValue" class="fw-bold"> </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-7">
+              <div class="inner card-body p-4 p-lg-5 bg-white">
+                <!-- start recipe level -->
+                <div class="recipe-level d-flex align-items-center gap-3 mb-2">
+                  <span
+                    class="badge badge-1 rounded-pill text-capitalize fw-semibold"
+                    id="recipeLevel"
+                  >
+                    <!-- Easy -->
+                  </span>
+                  <span
+                    class="badge badge-2 rounded-pill text-capitalize fw-semibold"
+                    id="recipeCategory"
+                  >
+                    <!-- American -->
+                  </span>
+                </div>
+                <!-- end recipe level -->
+
+                <!-- start recipe name and description -->
+                <div class="recipe-title d-flex justify-content-between">
+                  <div>
+                    <h2 class="mb-2 text-capitalize fw-bold" id="recipeName">
+                      <!-- Classic Beef Burger -->
+                    </h2>
+                    <p class="text-secondary-color" id="recipeDescription">
+                      <!-- Juicy homemade burger with all the fixings -->
+                    </p>
+                  </div>
+                  <div class="icon-container d-flex gap-2">
+                    <a href="#" class="text-decoration-none"
+                      ><i
+                        class="fa-solid fa-bookmark d-flex align-items-center justify-content-center"
+                      ></i
+                    ></a>
+                    <a href="#" class="text-decoration-none"
+                      ><i
+                        class="fa-solid fa-share-nodes d-flex align-items-center justify-content-center"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+                <!-- end recipe name and description -->
+
+                <!-- start Extended Preparation Time -->
+                <div id="warningMessage">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="warning-message">
+                      <h5 class="m-0 fs-6 fw-semibold">
+                        Extended Preparation Time
+                      </h5>
+                      <p class="m-0">
+                        This recipe requires more than 45 minutes to prepare.
+                        Plan accordingly!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- end Extended Preparation Time -->
+
+                <!-- start nav and tabs section -->
+                <nav class="mt-4">
+                  <div
+                    class="nav nav-tabs justify-content-center justify-content-lg-evenly"
+                    id="nav-tab"
+                    role="tablist"
+                  >
+                    <button
+                      class="nav-link tab-color active px-3"
+                      id="nav-ingredients-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-ingredients"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-ingredients"
+                      aria-selected="true"
+                    >
+                      <i class="fa-solid fa-list-check"></i>
+                      Ingredients
+                    </button>
+                    <button
+                      class="nav-link tab-color px-3"
+                      id="nav-instructions-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-instructions"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-instructions"
+                      aria-selected="false"
+                    >
+                      <i class="fa-solid fa-book-open"></i>
+                      Instructions
+                    </button>
+                    <button
+                      class="nav-link tab-color px-3"
+                      id="nav-nutrition-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-nutrition"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-nutrition"
+                      aria-selected="false"
+                    >
+                      <i class="fa-solid fa-chart-pie"></i>
+                      Nutrition
+                    </button>
+                    <button
+                      class="nav-link tab-color px-3"
+                      id="nav-chefs-tips-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#nav-chefs-tips"
+                      type="button"
+                      role="tab"
+                      aria-controls="nav-chefs-tips"
+                      aria-selected="false"
+                    >
+                      <i class="fa-solid fa-lightbulb"></i>
+                      Chef's Tips
+                    </button>
+                  </div>
+                </nav>
+                <div class="tab-content my-4" id="nav-tabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="nav-ingredients"
+                    role="tabpanel"
+                    aria-labelledby="nav-ingredients-tab"
+                    tabindex="0"
+                  >
+                    <div class="list-container overflow-hidden">
+                      <ul
+                        class="ingredients-list rounded-4 p-4 d-flex flex-column gap-3 mb-4 overflow-y-auto"
+                        id="ingredientList"
+                      ></ul>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="nav-instructions"
+                    role="tabpanel"
+                    aria-labelledby="nav-instructions-tab"
+                    tabindex="0"
+                  >
+                    <div class="list-container overflow-hidden">
+                      <ul
+                        class="instruction-list rounded-4 p-4 d-flex flex-column gap-4 mb-4 overflow-y-auto"
+                        id="instructionList"
+                      ></ul>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="nav-nutrition"
+                    role="tabpanel"
+                    aria-labelledby="nav-nutrition-tab"
+                    tabindex="0"
+                  >
+                    <div class="nutrition-container overflow-hidden">
+                      <div
+                        class="inner-wrapper container h-100 overflow-y-auto"
+                      >
+                        <div class="row g-4">
+                          <!-- Calories -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-1 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-fire"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">Calories</h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="caloriesValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Protein -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-2 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-dumbbell"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">Protein</h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="proteinValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Carbohydrates -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-3 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-wheat-awn"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">
+                                  Carbohydrates
+                                </h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="carboValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Fat -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-4 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-droplet"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">Fat</h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="fatValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Fiber -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-5 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-leaf"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">Fiber</h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="fiberValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Sodium -->
+                          <div class="col-12 col-md-6">
+                            <div
+                              class="inner d-flex align-items-center justify-content-between p-3 rounded-3"
+                            >
+                              <div class="d-flex align-items-center gap-3">
+                                <div
+                                  class="icon icon-6 d-flex align-items-center justify-content-center"
+                                >
+                                  <i class="fa-solid fa-flask"></i>
+                                </div>
+                                <h3 class="m-0 fs-6 fw-medium">Sodium</h3>
+                              </div>
+                              <div class="nutrition-value">
+                                <h4 class="m-0 fw-bold" id="sodiumValue"></h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="tab-pane fade"
+                    id="nav-chefs-tips"
+                    role="tabpanel"
+                    aria-labelledby="nav-chefs-tips-tab"
+                    tabindex="0"
+                  >
+                    <div class="chefs-tips-container overflow-hidden">
+                      <div class="overflow-y-auto">
+                        <div
+                          class="d-flex flex-column gap-3"
+                          id="chefsTipsList"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end nav and tabs section -->
+
+                <button
+                  id="tryBtn"
+                  class="text-capitalize border-0 mt-4 shadow text-white fw-semibold"
+                >
+                  <i class="fa-solid fa-rotate fa-canvas-roomy"></i>
+                  try another recipe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
