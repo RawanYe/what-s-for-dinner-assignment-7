@@ -181,6 +181,7 @@ body {
         background: transparent;
         position: relative;
         transition: all 0.25s ease;
+        font-weight: 500;
       }
 
       .nav-tabs .nav-link:not(.active):hover {
